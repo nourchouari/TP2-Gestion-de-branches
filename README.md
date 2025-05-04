@@ -1,1 +1,2 @@
-# TP2 : Gestion des branchesCeci est une description du projet
+# TP2 : Gestion des branches
+Ceci est une description du projet
