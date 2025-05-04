@@ -1,0 +1,139 @@
+-- NOUR CHOUARI TPA2 --
+
+1)
+
+cd Desktop/
+ls
+cd TP2-CHOUARI-Nour/
+git init
+
+Vue terminale
+------------------
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+2)
+
+git switch -c develop
+
+git status
+notepad README.md
+git add .
+git commit -m "Ajout du README"
+
+3)
+
+git switch -c feature1
+echo "Ceci est une description du projet" >> README.md
+git add .
+git commit -m "Ajout d'une seconde ligne au README"
+git status
+git add .
+git commit -m "Modification de la seconde ligne au README (retour à la ligne)"
+
+4)
+
+git switch develop
+git add .
+git commit -m "Ajout d'une seconde ligne depuis develop"
+git merge feature1
+git status
+git add .
+git commit -m "Modification pour gérer le conflit"
+
+5)
+
+git switch -c feature2
+git add .
+git commit -m "Modification du titre du README"
+
+6)
+
+git switch develop
+git switch -c feature3
+git add .
+git commit -m "Modification du titre du README"
+
+7)
+
+git switch develop
+git merge feature2
+
+Updating 0726563..ab8c455
+Fast-forward
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+git merge feature3
+
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+8)
+
+git status
+git add .
+git commit -m "Merge du feature2"
+git merge feature3
+git add .
+git commit -m "Merge du feature3 et correction du conflit"
+
+
+git remote add origin https://github.com/nourchouari/TP2-Gestion-de-branches.git
+git push -u origin develop
+
+REBASE:
+
+
+1)
+
+git switch -c feature4
+git add .
+git commit -m " Modification et ajout d'une ligne dans le README"
+
+2)
+
+git add .
+git commit -m "Ajout dans README.md - mention feature4"
+
+3)
+
+git add .
+git commit -m "Ajout dans README.md - derniere ligne feature4"
+
+4)
+
+git rebase -i HEAD~3
+
+Je n'ai donc plus que le dernier commit que j'ai effectué sur ma branche feature 4 car jai fusionner les deux plus anciens.
+
+5)
+
+git switch develop
+git add .
+git commit -m "Modification du titre du README"
+git push -u origin develop
+git status
+
+6)
+
+git rebase feature4
+aucun conflit à gérer
+git status
+
+7) La commande git merge permet de fusionner deux branches. En cas de modifications aux mêmes endroits dans les fichiers, des conflits doivent être résolus avant de finaliser la fusion. La branche cible récupère ensuite toutes les modifications de l’autre branche.
+
+8) La commande git rebase sert à réécrire l’historique en déplaçant les commits d’une branche sur une autre, ce qui rend l’historique plus propre qu’un merge. Dans ce TP, elle nous a permis de mettre à jour develop avec feature4, tout en gardant nos modifs et en simplifiant l’historique.
+
+9)
+
+git push -f origin develop
+
+
+
